@@ -253,8 +253,7 @@
             "karmaConfig": "./karma.conf.js",
             "polyfills": "docs/polyfills.ts",
             "tsConfig": "docs/tsconfig.spec.json",
-            "scripts": [
-            ],
+            "scripts": [],
             "styles": [
               "node_modules/nebular-icons/scss/nebular-icons.scss",
               "docs/app/@theme/styles/styles.scss"
@@ -295,7 +294,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "e2e/tsconfig.e2e.json"],
+              "e2e/tsconfig.e2e.json"
+            ],
             "exclude": []
           }
         }
@@ -311,5 +311,8 @@
     "@schematics/angular:directive": {
       "prefix": "ngx"
     }
+  },
+  "cli": {
+    "analytics": "7b6ec4c2-1060-42a4-8126-3046c09ea3fe"
   }
 }
