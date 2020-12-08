@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { NbSidebarService } from '@nebular/theme';
 import { TreeviewItem, TreeviewConfig, TreeviewHelper, TreeviewComponent,
-    TreeviewEventParser, OrderDownlineTreeviewEventParser, DownlineTreeviewItem
+    TreeviewEventParser, OrderDownlineTreeviewEventParser, DownlineTreeviewItem,
 } from 'ngx-treeview';
 import { isNil, remove, reverse } from 'lodash';
 declare var require: any;
-let Boost = require('highcharts/modules/boost');
-let noData = require('highcharts/modules/no-data-to-display');
-let More = require('highcharts/highcharts-more');
+const Boost = require('highcharts/modules/boost');
+const noData = require('highcharts/modules/no-data-to-display');
+const More = require('highcharts/highcharts-more');
 
 Boost(Highcharts);
 noData(Highcharts);
@@ -19,7 +19,7 @@ noData(Highcharts);
 @Component({
   selector: 'ngx-drilldown',
   templateUrl: './drilldown.component.html',
-  styleUrls: ['./drilldown.component.scss']
+  styleUrls: ['./drilldown.component.scss'],
 })
 export class DrilldownComponent implements OnInit {
     dataSource: Object;
@@ -35,21 +35,21 @@ export class DrilldownComponent implements OnInit {
         hasFilter: true,
         hasCollapseExpand: true,
         decoupleChildFromParent: false,
-        maxHeight: 400
+        maxHeight: 400,
     });
     showFiller = true;
 
     constructor(private sidebarService: NbSidebarService) {
-        this.chartType = "mscolumn2d";
+        this.chartType = 'mscolumn2d';
         this.dataSets = {
-            "countries": ["Georgia", "France", "Honduras", "Iceland", "Kiribati"],
-            "oilReserves": [50, 30, 10, 70, 40],
-            "population": [20, 10, 50, 60, 15],
-            "cities": ["Pogradec", "Riadh", "Mecca", "Petran", "Elbasan"]
+            'countries': ['Georgia', 'France', 'Honduras', 'Iceland', 'Kiribati'],
+            'oilReserves': [50, 30, 10, 70, 40],
+            'population': [20, 10, 50, 60, 15],
+            'cities': ['Pogradec', 'Riadh', 'Mecca', 'Petran', 'Elbasan'],
         };
-        this.label = "countries";
-        this.value1 = "oilReserves";
-        this.value2 = "population";
+        this.label = 'countries';
+        this.value1 = 'oilReserves';
+        this.value2 = 'population';
         // STEP 3 - Chart Configuration
         this.reRenderGraph();
         this.items = this.getBooks();
@@ -59,7 +59,7 @@ export class DrilldownComponent implements OnInit {
     }
 
     onFilterChange(value: string): void {
-        console.log('filter:', value);
+        // console.log('filter:', value);
     }
     onSelectedChange(downlineItems: DownlineTreeviewItem[]): void {
         downlineItems.forEach(downlineItem => {
@@ -73,37 +73,36 @@ export class DrilldownComponent implements OnInit {
             }
             const reverseTexts = reverse(texts);
             const row = `${reverseTexts.join(' -> ')} : ${value}`;
-            console.log(row);
+            // console.log(row);
         });
     }
-    
 
-    reRenderGraph() { 
+    reRenderGraph() {
         const dataSource = {
             chart: {
-                //Set the chart caption
-                caption: "Countries With Most Oil Reserves [2017-18]",
-                //Set the chart subcaption
+                // Set the chart caption
+                caption: 'Countries With Most Oil Reserves [2017-18]',
+                // Set the chart subcaption
                 // subCaption: "In MMbbl = One Million barrels",
                 // //Set the x-axis name
                 // xAxisName: "Country",
-                //Set the y-axis name
+                // Set the y-axis name
                 // yAxisName: "Reserves (MMbbl)",
-                numberSuffix: "K",
-                //Set the theme for your chart
-                theme: "fusion"
+                numberSuffix: 'K',
+                // Set the theme for your chart
+                theme: 'fusion',
             },
             // Chart Data - from step 2
             data: this.gen2DGraphData(),
-            categories: [{ "category": this.getCategoriesLabels() }],
-            dataset: this.getDataSets()
+            categories: [{ 'category': this.getCategoriesLabels() }],
+            dataset: this.getDataSets(),
         };
         this.dataSource = dataSource;
     }
 
-    gen2DGraphData() { 
+    gen2DGraphData() {
         const chartData = [];
-        for (let i = 0; i < 5; i++) { 
+        for (let i = 0; i < 5; i++) {
             const dataPoint = {
                 label: this.dataSets[this.label][i],
                 value: this.dataSets[this.value1][i],
@@ -113,9 +112,9 @@ export class DrilldownComponent implements OnInit {
         return chartData;
     }
 
-    getCategoriesLabels() { 
+    getCategoriesLabels() {
         const categories = [];
-        for (let i = 0; i < 5; i++) { 
+        for (let i = 0; i < 5; i++) {
             const dataPoint = {
                 label: this.dataSets[this.label][i],
             };
@@ -124,31 +123,30 @@ export class DrilldownComponent implements OnInit {
         return categories;
     }
 
-    getDataSets() { 
+    getDataSets() {
         const datasets = [];
         const series = {
             seriesname: this.value1,
-            data: []
+            data: [],
         };
-        for (let j = 0; j < 5; j++) { 
+        for (let j = 0; j < 5; j++) {
             const dataPoint = {
                 value: this.dataSets[this.value1][j],
             };
-            series["data"].push(dataPoint);
+            series['data'].push(dataPoint);
         }
         datasets.push(series);
         const series2 = {
             seriesname: this.value2,
-            data: []
+            data: [],
         };
-        for (let j = 0; j < 5; j++) { 
+        for (let j = 0; j < 5; j++) {
             const dataPoint = {
                 value: this.dataSets[this.value2][j],
             };
-            series2["data"].push(dataPoint);
+            series2['data'].push(dataPoint);
         }
         datasets.push(series2);
-    
         return datasets;
     }
 
@@ -162,22 +160,22 @@ export class DrilldownComponent implements OnInit {
 
     getBooks(): TreeviewItem[] {
         const countriesCategory = new TreeviewItem({
-          text: 'Countries', value: "countires", collapsed: true, children: [
-            { text: 'Georgia', value: "Georgia" },
-            { text: 'France', value: "France" },
-            { text: 'Honduras', value: "Honduras" },
-            { text: 'Iceland', value: "Iceland" },
-            { text: 'Kiribati', value: "Kiribati" }
-          ]
+            text: 'Countries', value: 'countires', collapsed: true, children: [
+                { text: 'Georgia', value: 'Georgia' },
+                { text: 'France', value: 'France' },
+                { text: 'Honduras', value: 'Honduras' },
+                { text: 'Iceland', value: 'Iceland' },
+                { text: 'Kiribati', value: 'Kiribati' },
+            ],
         });
         const citiesCategory = new TreeviewItem({
-            text: 'Cities', value: "cities", collapsed: true, children: [
-              { text: 'Pogradec', value: "Pogradec" },
-              { text: 'Riadh', value: "Riadh" },
-              { text: 'Mecca', value: "Mecca" },
-              { text: 'Petran', value: "Petran" },
-              { text: 'Elbasan', value: "Elbasan" }
-            ]
+            text: 'Cities', value: 'cities', collapsed: true, children: [
+              { text: 'Pogradec', value: 'Pogradec' },
+              { text: 'Riadh', value: 'Riadh' },
+              { text: 'Mecca', value: 'Mecca' },
+              { text: 'Petran', value: 'Petran' },
+              { text: 'Elbasan', value: 'Elbasan' },
+            ],
           });
         return [countriesCategory, citiesCategory];
       }

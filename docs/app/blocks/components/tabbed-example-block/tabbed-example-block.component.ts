@@ -26,7 +26,7 @@ export class NgxTabbedExampleBlockComponent {
 
   @Input()
   set content({ files }) {
-    forkJoin(files.map(file => this.load(file)))
+    forkJoin([files.map(file => this.load(file))])
       .subscribe(loadedFiles => {
         (loadedFiles[0] as any).active = true;
         this.examples = loadedFiles;

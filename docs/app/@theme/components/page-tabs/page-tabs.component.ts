@@ -29,12 +29,12 @@ export class NgxPageTabsComponent implements OnDestroy {
 
   @Input()
   set tabs(value) {
-    this.items$ = combineLatest(
+    this.items$ = combineLatest([
       observableOf(value || []).pipe(
         map(tabs => this.availableTabs.filter(tab => tabs[tab.tab])),
       ),
       this.activatedRoute.params.pipe(publishReplay(), refCount()),
-    )
+    ])
     .pipe(
       takeWhile(() => this.alive),
       map(([tabs, params]) => (tabs.map((item: any) => ({ ...item, selected: item.tab === params.tab })))),

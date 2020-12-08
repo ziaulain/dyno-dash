@@ -41,7 +41,6 @@ import { InlineSVGModule } from 'ng-inline-svg';
         CoreModule.forRoot(),
         ThemeModule.forRoot(),
         InlineSVGModule.forRoot(),
-        
     ],
     bootstrap: [AppComponent],
 })

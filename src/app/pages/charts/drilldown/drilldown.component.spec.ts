@@ -8,7 +8,7 @@ describe('DrilldownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DrilldownComponent ]
+      declarations: [ DrilldownComponent ],
     })
     .compileComponents();
   }));

@@ -19,7 +19,7 @@ const routes: Routes = [{
   }, {
     path: 'chartjs',
     component: ChartjsComponent,
-  },{
+  }, {
     path: 'drilldown',
     component: DrilldownComponent,
   }],
@@ -36,5 +36,5 @@ export const routedComponents = [
     EchartsComponent,
     D3Component,
     ChartjsComponent,
-    DrilldownComponent
+    DrilldownComponent,
 ];

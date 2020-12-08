@@ -10,7 +10,7 @@ import {
     NbSelectModule,
     NbButtonModule,
     NbInputModule,
-    NbCheckboxModule
+    NbCheckboxModule,
 } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TreeviewModule } from 'ngx-treeview';
@@ -37,12 +37,12 @@ import { EchartsAreaStackComponent } from './echarts/echarts-area-stack.componen
 import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.component';
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
 import { DrilldownComponent } from './drilldown/drilldown.component';
-import { FusionChartsModule } from "angular-fusioncharts";
+import { FusionChartsModule } from 'angular-fusioncharts';
 import { FormsModule } from '@angular/forms';
 // Import FusionCharts library and chart modules
-import * as FusionCharts from "fusioncharts";
-import * as charts from "fusioncharts/fusioncharts.charts";
-import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import * as FusionCharts from 'fusioncharts';
+import * as charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
@@ -69,7 +69,7 @@ const components = [
     EchartsAreaStackComponent,
     EchartsBarAnimationComponent,
     EchartsRadarComponent,
-    DrilldownComponent
+    DrilldownComponent,
 ];
 
 @NgModule({
@@ -90,7 +90,7 @@ const components = [
         FormsModule,
         NbCheckboxModule,
         TreeviewModule.forRoot(),
-        MatSidenavModule
+        MatSidenavModule,
     ],
     declarations: [...routedComponents, ...components],
 })

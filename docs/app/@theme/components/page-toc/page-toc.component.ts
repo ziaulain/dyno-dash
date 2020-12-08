@@ -36,10 +36,10 @@ export class NgxPageTocComponent implements OnDestroy {
 
   @Input()
   set toc(value) {
-    combineLatest(
+    combineLatest([
       observableOf(value || []),
       this.activatedRoute.fragment,
-    )
+    ])
       .pipe(
         takeWhile(() => this.alive),
         map(([toc, fragment]) => {
