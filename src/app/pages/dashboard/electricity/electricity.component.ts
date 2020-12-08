@@ -31,10 +31,10 @@ export class ElectricityComponent implements OnDestroy {
         this.currentTheme = theme.name;
     });
 
-    forkJoin(
+    forkJoin([
       this.electricityService.getListData(),
       this.electricityService.getChartData(),
-    )
+    ])
       .pipe(takeWhile(() => this.alive))
       .subscribe(([listData, chartData]: [Electricity[], ElectricityChart[]] ) => {
         this.listData = listData;

@@ -2,9 +2,19 @@ import { NgModule } from '@angular/core';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartModule } from 'angular2-chartjs';
-import { NbCardModule } from '@nebular/theme';
-
+import {
+    NbCardModule,
+    NbIconModule,
+    NbLayoutModule,
+    NbSidebarModule,
+    NbSelectModule,
+    NbButtonModule,
+    NbInputModule,
+    NbCheckboxModule,
+} from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
+import { TreeviewModule } from 'ngx-treeview';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { ChartsRoutingModule, routedComponents } from './charts-routing.module';
 import { ChartjsBarComponent } from './chartjs/chartjs-bar.component';
@@ -26,38 +36,62 @@ import { EchartsMultipleXaxisComponent } from './echarts/echarts-multiple-xaxis.
 import { EchartsAreaStackComponent } from './echarts/echarts-area-stack.component';
 import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.component';
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
+import { DrilldownComponent } from './drilldown/drilldown.component';
+import { FusionChartsModule } from 'angular-fusioncharts';
+import { FormsModule } from '@angular/forms';
+// Import FusionCharts library and chart modules
+import * as FusionCharts from 'fusioncharts';
+import * as charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+
+
 
 const components = [
-  ChartjsBarComponent,
-  ChartjsLineComponent,
-  ChartjsPieComponent,
-  ChartjsMultipleXaxisComponent,
-  ChartjsBarHorizontalComponent,
-  ChartjsRadarComponent,
-  D3BarComponent,
-  D3LineComponent,
-  D3PieComponent,
-  D3AreaStackComponent,
-  D3PolarComponent,
-  D3AdvancedPieComponent,
-  EchartsLineComponent,
-  EchartsPieComponent,
-  EchartsBarComponent,
-  EchartsMultipleXaxisComponent,
-  EchartsAreaStackComponent,
-  EchartsBarAnimationComponent,
-  EchartsRadarComponent,
+    ChartjsBarComponent,
+    ChartjsLineComponent,
+    ChartjsPieComponent,
+    ChartjsMultipleXaxisComponent,
+    ChartjsBarHorizontalComponent,
+    ChartjsRadarComponent,
+    D3BarComponent,
+    D3LineComponent,
+    D3PieComponent,
+    D3AreaStackComponent,
+    D3PolarComponent,
+    D3AdvancedPieComponent,
+    EchartsLineComponent,
+    EchartsPieComponent,
+    EchartsBarComponent,
+    EchartsMultipleXaxisComponent,
+    EchartsAreaStackComponent,
+    EchartsBarAnimationComponent,
+    EchartsRadarComponent,
+    DrilldownComponent,
 ];
 
 @NgModule({
-  imports: [
-    ThemeModule,
-    ChartsRoutingModule,
-    NgxEchartsModule,
-    NgxChartsModule,
-    ChartModule,
-    NbCardModule,
-  ],
-  declarations: [...routedComponents, ...components],
+    imports: [
+        ThemeModule,
+        ChartsRoutingModule,
+        NgxEchartsModule,
+        NgxChartsModule,
+        ChartModule,
+        NbCardModule,
+        FusionChartsModule,
+        NbIconModule,
+        NbLayoutModule,
+        NbSidebarModule,
+        NbSelectModule,
+        NbButtonModule,
+        NbInputModule,
+        FormsModule,
+        NbCheckboxModule,
+        TreeviewModule.forRoot(),
+        MatSidenavModule,
+    ],
+    declarations: [...routedComponents, ...components],
 })
 export class ChartsModule {}
