@@ -1,0 +1,28 @@
+nb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+mat-drawer{
+    width: 300px;
+}
+
+.chart-options {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 12px;
+}
+
+.filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

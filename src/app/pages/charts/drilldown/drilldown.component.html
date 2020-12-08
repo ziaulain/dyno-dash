@@ -1,0 +1,68 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav" opened mode="side" position="end">
+        <div class="filters-container">
+            <ngx-treeview
+                [config]="config"
+                [items]="items"
+                (selectedChange)="onSelectedChange($event)"
+                (filterChange)="onFilterChange($event)">
+            </ngx-treeview>
+        </div>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+        <div class="chart-options">
+            <div class="form-group">
+                <label for="chartType" class="label" >Chart Type</label>
+                <nb-select id="chartType" fullWidth matRipple selected="column2d" [(ngModel)]="chartType">
+                    <nb-option matRipple value="column2d">column2d</nb-option>
+                    <nb-option matRipple value="column3d">column3d</nb-option>
+                    <nb-option matRipple value="line">line</nb-option>
+                    <nb-option matRipple value="area2d">area2d</nb-option>
+                    <nb-option matRipple value="bar2d">bar2d</nb-option>
+                    <nb-option matRipple value="bar3d">bar3d</nb-option>
+                    <nb-option matRipple value="pie2d">pie2d</nb-option>
+                    <nb-option matRipple value="pie3d">pie3d</nb-option>
+                    <nb-option matRipple value="doughnut2d">doughnut2d</nb-option>
+                    <nb-option matRipple value="doughnut3d">doughnut3d</nb-option>
+                    <nb-option matRipple value="pareto2d">pareto2d</nb-option>
+                    <nb-option matRipple value="pareto3d">pareto3d</nb-option>
+                    <nb-option matRipple value="mscolumn2d">mscolumn2d</nb-option>
+                    
+                </nb-select>
+            </div>
+            <div class="form-group">
+                <label for="chartName" class="label">Chart Title</label>
+                <!-- <input type="text" id="chartName" nbInput fullWidth shape="rectangle" placeholder="Chart Name" [(ngModel)]="dataSource.chart.caption"> -->
+            </div>
+            <div class="form-group">
+                <label for="x-axis" class="label">Labels</label>
+                <nb-select id="x-axis" fullWidth matRipple selected="countries" [(ngModel)]="label" (selectedChange)="reRenderGraph()">
+                    <nb-option matRipple value="countries">countries</nb-option>
+                    <nb-option matRipple value="cities">cities</nb-option>
+                </nb-select>
+                <!-- <input type="text" id="x-axis" nbInput fullWidth shape="rectangle" placeholder="Chart Name" [(ngModel)]="dataSource.chart.caption"> -->
+            </div>
+            <div class="form-group">
+                <label for="y-axis" class="label">Values 1</label>
+                <nb-select id="y-axis" fullWidth matRipple selected="oilReserves" [(ngModel)]="value1" (selectedChange)="reRenderGraph()">
+                    <nb-option matRipple value="oilReserves">oilReserves</nb-option>
+                    <nb-option matRipple value="population">population</nb-option>
+                </nb-select>
+            </div>
+            <div class="form-group">
+                <label for="y-axis-2" class="label">Values 2</label>
+                <nb-select id="y-axis-2" fullWidth matRipple selected="oilReserves" [(ngModel)]="value2" (selectedChange)="reRenderGraph()">
+                    <nb-option matRipple value="oilReserves">oilReserves</nb-option>
+                    <nb-option matRipple value="population">population</nb-option>
+                </nb-select>
+            </div>
+            
+        </div>
+        <div class="chart-container">
+            <fusioncharts width="700" height="400" [type]="chartType" [dataSource]="dataSource">
+            </fusioncharts>
+        </div>
+    </div>
+  
+  </mat-drawer-container>
