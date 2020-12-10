@@ -26,8 +26,7 @@ const routes: Routes = [{
   }, {
     path: 'dashboard/:name',
     component: DashboardComponent,
-  }
-],
+  }],
 }];
 
 @NgModule({

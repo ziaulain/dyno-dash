@@ -182,15 +182,15 @@ export class DrilldownComponent implements OnInit {
         return [countriesCategory, citiesCategory];
       }
 
-      addToDashboard(){
+      addToDashboard() {
           this.dashBoardCharts.push({
-              chartType:this.chartType,
-              dataSource:this.dataSource
+              chartType: this.chartType,
+              dataSource: this.dataSource,
           });
           const obj = JSON.stringify([{
-              dashboard:'default',
-              charts: this.dashBoardCharts
+              dashboard: 'default',
+              charts: this.dashBoardCharts,
         }]);
-          localStorage.setItem('dyno-dash',obj)
+          localStorage.setItem('dyno-dash', obj);
       }
 }
