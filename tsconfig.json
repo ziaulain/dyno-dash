@@ -14,8 +14,4 @@
       "path": "./src/tsconfig.spec.json"
     }
   ],
-  "compilerOptions": {
-    "noUnusedLocals": true,                /* Report errors on unused locals. */
-    "noUnusedParameters": true             /* Report errors on unused parameters. */
-  }
 }
