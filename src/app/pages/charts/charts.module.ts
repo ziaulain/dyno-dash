@@ -43,6 +43,7 @@ import { FormsModule } from '@angular/forms';
 import * as FusionCharts from 'fusioncharts';
 import * as charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
@@ -92,6 +93,6 @@ const components = [
         TreeviewModule.forRoot(),
         MatSidenavModule,
     ],
-    declarations: [...routedComponents, ...components],
+    declarations: [...routedComponents, ...components, DashboardComponent],
 })
 export class ChartsModule {}

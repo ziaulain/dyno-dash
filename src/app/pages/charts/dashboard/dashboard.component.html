@@ -1,0 +1,5 @@
+<div class="chart-container d-flex flex-wrap">
+    <div class="col-6 mb-2" *ngFor="let chart of dashBoardCharts">
+        <fusioncharts width="100%" height="" [type]="chart.chartType" [dataSource]="chart.dataSource"></fusioncharts>    
+    </div>
+</div>

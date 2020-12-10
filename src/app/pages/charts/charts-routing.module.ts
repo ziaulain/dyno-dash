@@ -6,6 +6,7 @@ import { EchartsComponent } from './echarts/echarts.component';
 import { D3Component } from './d3/d3.component';
 import { ChartjsComponent } from './chartjs/chartjs.component';
 import { DrilldownComponent} from './drilldown/drilldown.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,7 +23,11 @@ const routes: Routes = [{
   }, {
     path: 'drilldown',
     component: DrilldownComponent,
-  }],
+  }, {
+    path: 'dashboard/:name',
+    component: DashboardComponent,
+  }
+],
 }];
 
 @NgModule({

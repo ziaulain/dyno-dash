@@ -38,6 +38,7 @@ export class DrilldownComponent implements OnInit {
         maxHeight: 400,
     });
     showFiller = true;
+    dashBoardCharts: any[] = [];
 
     constructor(private sidebarService: NbSidebarService) {
         this.chartType = 'mscolumn2d';
@@ -56,6 +57,7 @@ export class DrilldownComponent implements OnInit {
    }
 
     ngOnInit(): void {
+        this.dashBoardCharts = JSON.parse(localStorage.getItem('dyno-dash'))[0].charts;
     }
 
     onFilterChange(value: string): void {
@@ -178,5 +180,17 @@ export class DrilldownComponent implements OnInit {
             ],
           });
         return [countriesCategory, citiesCategory];
+      }
+
+      addToDashboard(){
+          this.dashBoardCharts.push({
+              chartType:this.chartType,
+              dataSource:this.dataSource
+          });
+          let obj = JSON.stringify([{
+              dashboard:'default',
+              charts: this.dashBoardCharts
+        }]);
+          localStorage.setItem('dyno-dash',obj)
       }
 }
