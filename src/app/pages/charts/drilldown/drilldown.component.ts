@@ -187,7 +187,7 @@ export class DrilldownComponent implements OnInit {
               chartType:this.chartType,
               dataSource:this.dataSource
           });
-          let obj = JSON.stringify([{
+          const obj = JSON.stringify([{
               dashboard:'default',
               charts: this.dashBoardCharts
         }]);
