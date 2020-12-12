@@ -9,15 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
   dashBoardCharts: any[] = [];
 
-  constructor(private activeRoute:ActivatedRoute) {
-    this.activeRoute.paramMap.subscribe(params=>{
-      this.dashBoardCharts = JSON.parse(localStorage.getItem('dyno-dash')).filter(e=>e.dashboard ===params['params']['name'])[0].charts;
-    })
-
+  constructor(private activeRoute: ActivatedRoute) {
+    this.activeRoute.paramMap.subscribe( params => {
+      this.dashBoardCharts = JSON.parse( localStorage.getItem('dyno-dash') ).filter( e => e.dashboard === params['params']['name'])[0].charts;
+    });
    }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
 }

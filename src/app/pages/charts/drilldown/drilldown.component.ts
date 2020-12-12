@@ -38,7 +38,7 @@ export class DrilldownComponent implements OnInit {
         maxHeight: 400,
     });
     showFiller = true;
-    selectedDashboard: string= "";
+    selectedDashboard: string = '';
     dashBoards: any[] = [];
 
     constructor(private sidebarService: NbSidebarService) {
@@ -184,11 +184,11 @@ export class DrilldownComponent implements OnInit {
       }
 
       addToDashboard() {
-        let idx = this.dashBoards.map(e=>e.dashboard).indexOf(this.selectedDashboard);
+        const idx = this.dashBoards.map( e => e.dashboard).indexOf( this.selectedDashboard );
         this.dashBoards[idx].charts.push({
             chartType: this.chartType,
             dataSource: this.dataSource,
-        })
+        });
         localStorage.setItem('dyno-dash', JSON.stringify(this.dashBoards));
       }
 }

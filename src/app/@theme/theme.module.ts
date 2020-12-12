@@ -89,7 +89,7 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, MatRippleModule, ...NB_MODULES,MatDialogModule],
+  imports: [CommonModule, MatRippleModule, ...NB_MODULES, MatDialogModule],
   exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
 })

@@ -133,7 +133,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   addDashboard() {
-    this.dialog.open(DashboardFormComponent,{width:"350px"})
+    this.dialog.open(DashboardFormComponent, {width: '350px'})
     .afterClosed();
   }
 }

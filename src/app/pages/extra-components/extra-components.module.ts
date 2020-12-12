@@ -83,11 +83,11 @@ const MODULES = [
   imports: [
     ...MODULES,
     MatInputModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     ...COMPONENTS,
   ],
-  exports:[DashboardFormComponent]
+  exports: [DashboardFormComponent],
 })
 export class ExtraComponentsModule { }

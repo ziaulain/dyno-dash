@@ -8,7 +8,7 @@ describe('DashboardFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardFormComponent ]
+      declarations: [ DashboardFormComponent ],
     })
     .compileComponents();
   }));
