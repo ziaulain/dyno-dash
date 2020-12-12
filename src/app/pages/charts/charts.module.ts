@@ -44,6 +44,7 @@ import * as FusionCharts from 'fusioncharts';
 import * as charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatSelectModule } from '@angular/material/select';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
@@ -92,6 +93,7 @@ const components = [
         NbCheckboxModule,
         TreeviewModule.forRoot(),
         MatSidenavModule,
+        MatSelectModule,
     ],
     declarations: [...routedComponents, ...components, DashboardComponent],
 })

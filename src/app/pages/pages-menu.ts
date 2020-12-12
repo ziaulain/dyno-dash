@@ -226,12 +226,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
     ],
   },
-  {
-    title: 'Dashboard',
-    icon: 'shopping-cart-outline',
-    link: '/pages/charts/dashboard/default',
-    home: false,
-  },
+  // {
+  //   title: 'Dashboard',
+  //   icon: 'shopping-cart-outline',
+  //   link: '/pages/charts/dashboard/default',
+  //   home: false,
+  // },
   //   {
 //     title: 'Editors',
 //     icon: 'text-outline',

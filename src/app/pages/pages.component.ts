@@ -25,7 +25,36 @@ export class PagesComponent implements OnInit, OnDestroy {
 
   menu = MENU_ITEMS;
 
+  updateDashboards(){
+    let dashboardNames = JSON.parse(localStorage.getItem('dyno-dash'))?.map(e=>e.dashboard);
+    let idx = this.menu.map(e=>e.title).indexOf("Dashboard");
+    if(idx >-1 && dashboardNames?.length){
+      dashboardNames.forEach(name => {
+          let child = {
+            title: name,
+            link: `/pages/charts/dashboard/${name}`
+          }
+          this.menu[idx].children = [...this.menu[idx].children || [],child];
+      });
+    }else{
+      let obj = { 
+          title: 'Dashboard',
+          icon: 'shopping-cart-outline',
+          children: []
+      }
+      dashboardNames.forEach(name => {
+        let child = {
+          title: name,
+          link: `/pages/charts/dashboard/${name}`
+        }
+       obj.children = [...obj.children || [],child];
+      });
+      this.menu.push(obj);
+    }
+  }
+
   ngOnInit() {
+
     if (window['dataLayer']) {
       window['dataLayer'].push({'event': 'optimize.activate'});
     }
@@ -41,6 +70,7 @@ export class PagesComponent implements OnInit, OnDestroy {
           this.metaDataService.updateKeywords('ngx-admin, ngx admin dashboard features, ngx admin forms,' +
             ' ngx-admin maps, ngx-admin UI features, ngx-admin tables, ngx admin overlays, ngx-admin extra components');
       });
+      this.updateDashboards();
   }
 
   ngOnDestroy() {

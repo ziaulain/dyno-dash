@@ -38,7 +38,8 @@ export class DrilldownComponent implements OnInit {
         maxHeight: 400,
     });
     showFiller = true;
-    dashBoardCharts: any[] = [];
+    selectedDashboard: string= "";
+    dashBoards: any[] = [];
 
     constructor(private sidebarService: NbSidebarService) {
         this.chartType = 'mscolumn2d';
@@ -57,7 +58,7 @@ export class DrilldownComponent implements OnInit {
    }
 
     ngOnInit(): void {
-        this.dashBoardCharts = JSON.parse(localStorage.getItem('dyno-dash'))[0].charts;
+        this.dashBoards = JSON.parse(localStorage.getItem('dyno-dash'));
     }
 
     onFilterChange(value: string): void {
@@ -65,9 +66,9 @@ export class DrilldownComponent implements OnInit {
     }
     onSelectedChange(downlineItems: DownlineTreeviewItem[]): void {
         downlineItems.forEach(downlineItem => {
-            const item = downlineItem.item;
-            const value = item.value;
-            const texts = [item.text];
+            const item = downlineItem?.item;
+            const value = item?.value;
+            const texts = [item?.text];
             let parent = downlineItem.parent;
             while (!isNil(parent)) {
                 texts.push(parent.item.text);
@@ -183,14 +184,11 @@ export class DrilldownComponent implements OnInit {
       }
 
       addToDashboard() {
-          this.dashBoardCharts.push({
-              chartType: this.chartType,
-              dataSource: this.dataSource,
-          });
-          const obj = JSON.stringify([{
-              dashboard: 'default',
-              charts: this.dashBoardCharts,
-        }]);
-          localStorage.setItem('dyno-dash', obj);
+        let idx = this.dashBoards.map(e=>e.dashboard).indexOf(this.selectedDashboard);
+        this.dashBoards[idx].charts.push({
+            chartType: this.chartType,
+            dataSource: this.dataSource,
+        })
+        localStorage.setItem('dyno-dash', JSON.stringify(this.dashBoards));
       }
 }

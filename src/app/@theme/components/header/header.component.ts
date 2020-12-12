@@ -7,6 +7,8 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import {CurrentThemeService} from '../../../@core/utils/theme.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DashboardFormComponent } from 'app/pages/extra-components/dashboard-form/dashboard-form.component';
 
 @Component({
   selector: 'ngx-header',
@@ -61,6 +63,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private rippleService: RippleService,
     private analytics: AnalyticsService,
     private currentThemeService: CurrentThemeService,
+    private dialog: MatDialog,
   ) {
     this.materialTheme$ = new Observable(subscriber => {
       const themeName: string = this.currentThemeService.getCurrentTheme();
@@ -127,5 +130,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   trackEmailClick() {
     this.analytics.trackEvent('clickContactEmail', 'click');
+  }
+
+  addDashboard() {
+    this.dialog.open(DashboardFormComponent,{width:"350px"})
+    .afterClosed();
   }
 }

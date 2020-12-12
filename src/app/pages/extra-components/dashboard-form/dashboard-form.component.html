@@ -1,0 +1,9 @@
+<div class="d-flex flex-column">
+    <mat-form-field class="example-form-field">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [(ngModel)]="name" name="dashboard-name">
+    </mat-form-field>
+    <div class="mt-2 text-right">
+        <button class="btn btn-primary" [disabled]="!name" (click)="addDashboard()">Save</button>
+    </div>
+</div>

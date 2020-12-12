@@ -63,8 +63,14 @@
             <fusioncharts width="700" height="400" [type]="chartType" [dataSource]="dataSource">
             </fusioncharts>
         </div>
-        <div class="d-flex justify-content-center mt-3">
-            <button mat-raised-button type="button" (click)="addToDashboard()" class="btn btn-primary">Add to Dashboard</button>
+        <div class="text-center mt-3" *ngIf="dashBoards?.length">
+            <mat-form-field class="mr-2">
+                <mat-label>Choose a dashboard</mat-label>
+                <mat-select [(ngModel)]="selectedDashboard">
+                  <mat-option *ngFor="let dname of dashBoards" [value]="dname.dashboard">{{dname.dashboard}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <button mat-raised-button type="button" [disabled]="!selectedDashboard" (click)="addToDashboard()" class="btn btn-primary">Add to Dashboard</button>
         </div>
     </div>
   

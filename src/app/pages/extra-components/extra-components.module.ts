@@ -37,6 +37,9 @@ import { NebularFormInputsComponent } from './form-inputs/nebular-form-inputs.co
 import { NebularSelectComponent } from './form-inputs/nebular-select/nebular-select.component';
 import { CalendarKitFullCalendarShowcaseComponent } from './calendar-kit/calendar-kit.component';
 import { CalendarKitMonthCellComponent } from './calendar-kit/month-cell/month-cell.component';
+import { DashboardFormComponent } from './dashboard-form/dashboard-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   ExtraComponentsComponent,
@@ -55,6 +58,7 @@ const COMPONENTS = [
   NebularSelectComponent,
   CalendarKitFullCalendarShowcaseComponent,
   CalendarKitMonthCellComponent,
+  DashboardFormComponent,
 ];
 
 const MODULES = [
@@ -78,9 +82,12 @@ const MODULES = [
 @NgModule({
   imports: [
     ...MODULES,
+    MatInputModule,
+    FormsModule
   ],
   declarations: [
     ...COMPONENTS,
   ],
+  exports:[DashboardFormComponent]
 })
 export class ExtraComponentsModule { }
