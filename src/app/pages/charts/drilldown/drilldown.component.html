@@ -70,7 +70,8 @@
                   <mat-option *ngFor="let dname of dashBoards" [value]="dname.dashboard">{{dname.dashboard}}</mat-option>
                 </mat-select>
               </mat-form-field>
-            <button mat-raised-button type="button" [disabled]="!selectedDashboard" (click)="addToDashboard()" class="btn btn-primary">Add to Dashboard</button>
+            <button mat-raised-button type="button" [disabled]="!selectedDashboard || showSuccessMsg" (click)="addToDashboard()" class="btn btn-primary">Add to Dashboard</button>
+            <div *ngIf="showSuccessMsg" class="mb-2 text-success">Chart added to <b>{{selectedDashboard}} dashboard</b> successfully</div>
         </div>
     </div>
   

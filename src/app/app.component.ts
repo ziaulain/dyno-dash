@@ -46,6 +46,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // this.router.navigate(['/pages/dashboard'], {queryParams: {theme: themeName}});
     const variants = [
       AbService.VARIANT_THEME_CORPORATE,
       AbService.VARIANT_THEME_DEFAULT,
@@ -66,5 +67,16 @@ export class AppComponent implements OnInit {
           this.themeService.changeTheme(themeName);
         }
       });
+
+      let dashboards = JSON.parse(localStorage.getItem('dyno-dash'));
+      if (!dashboards?.length) {
+        dashboards = [{
+          dashboard: 'Default',
+          charts: [],
+        }];
+        localStorage.setItem('dyno-dash', JSON.stringify(dashboards));
+      }
+
+      this.currentThemeService.setCurrentTheme('default');
   }
 }

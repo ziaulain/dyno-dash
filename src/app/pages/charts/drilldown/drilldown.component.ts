@@ -40,6 +40,7 @@ export class DrilldownComponent implements OnInit {
     showFiller = true;
     selectedDashboard: string = '';
     dashBoards: any[] = [];
+    showSuccessMsg: Boolean = false;
 
     constructor(private sidebarService: NbSidebarService) {
         this.chartType = 'mscolumn2d';
@@ -86,11 +87,11 @@ export class DrilldownComponent implements OnInit {
                 // Set the chart caption
                 caption: 'Countries With Most Oil Reserves [2017-18]',
                 // Set the chart subcaption
-                // subCaption: "In MMbbl = One Million barrels",
+                // subCaption: 'In MMbbl = One Million barrels',
                 // //Set the x-axis name
-                // xAxisName: "Country",
+                // xAxisName: 'Country',
                 // Set the y-axis name
-                // yAxisName: "Reserves (MMbbl)",
+                // yAxisName: 'Reserves (MMbbl)',
                 numberSuffix: 'K',
                 // Set the theme for your chart
                 theme: 'fusion',
@@ -104,11 +105,13 @@ export class DrilldownComponent implements OnInit {
     }
 
     gen2DGraphData() {
+        const colors = ['#5d62b5', '#30b3af', '#5c60a6', '#61a887', '#eab83c'];
         const chartData = [];
         for (let i = 0; i < 5; i++) {
             const dataPoint = {
                 label: this.dataSets[this.label][i],
                 value: this.dataSets[this.value1][i],
+                color: colors[i],
             };
             chartData.push(dataPoint);
         }
@@ -190,5 +193,10 @@ export class DrilldownComponent implements OnInit {
             dataSource: this.dataSource,
         });
         localStorage.setItem('dyno-dash', JSON.stringify(this.dashBoards));
+        this.showSuccessMsg = true;
+        setTimeout(() => {
+            this.showSuccessMsg = false;
+            this.selectedDashboard = '';
+        }, 10 * 1000);
       }
 }

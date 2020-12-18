@@ -1,5 +1,19 @@
-<div class="chart-container d-flex flex-wrap">
-    <div class="col-6 mb-2" *ngFor="let chart of dashBoardCharts">
-        <fusioncharts width="100%" height="" [type]="chart.chartType" [dataSource]="chart.dataSource"></fusioncharts>    
+<div class="row">
+    <div class="col-lg-6" *ngFor="let chart of dashBoardCharts">
+        <nb-card style="">
+            <nb-card-header>{{chart.dataSource.chart.label}} - {{chart.chartType}}</nb-card-header>
+            <nb-card-body>
+                <div class="d-flex justify-content-between">
+                    <span *ngFor="let set of chart.dataSource.data;let i=index">
+                        <input class="color-picker-field" type="color" id="i" name="i" (change)="colorChange(chart.dataSource)" [(ngModel)]="set.color">
+                        <label for="i">{{set.label}}</label>
+                    </span>
+                </div>
+                <!-- <div *ngIf="chart.chartType ==='area2d'">
+                    <input class="color-picker-field" type="color" id="i" name="i" [(ngModel)]="chart.dataSource.chart.palettecolors">
+                </div> -->
+                <fusioncharts width="100%" height="" [type]="chart.chartType" [dataSource]="chart.dataSource"></fusioncharts> 
+            </nb-card-body>
+        </nb-card>
     </div>
 </div>
