@@ -5,22 +5,22 @@
     border: none;
     background: transparent;
 }
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }
 
-.actions{
+.actions {
     padding: 0 5px;
     color: #6c757d;
     font-weight: 300;
     font-size: 12px;
     cursor: pointer;
-    &:hover{
+    &:hover {
         color: #3366ff;
     }
 }
-::ng-deep{
-    .mat-menu-panel{
+::ng-deep {
+    .mat-menu-panel {
         background-color: rgba(0, 0, 0, 0.651);
         color:white;
     }
