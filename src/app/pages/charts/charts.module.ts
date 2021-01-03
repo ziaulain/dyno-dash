@@ -95,7 +95,7 @@ const components = [
         TreeviewModule.forRoot(),
         MatSidenavModule,
         MatSelectModule,
-        MatMenuModule
+        MatMenuModule,
     ],
     declarations: [...routedComponents, ...components, DashboardComponent],
 })
