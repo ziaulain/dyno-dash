@@ -197,6 +197,6 @@ export class DrilldownComponent implements OnInit {
         setTimeout(() => {
             this.showSuccessMsg = false;
             this.selectedDashboard = '';
-        }, 10 * 1000);
+        }, 3 * 1000);
       }
 }

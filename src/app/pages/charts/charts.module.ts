@@ -45,6 +45,7 @@ import * as charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
@@ -94,6 +95,7 @@ const components = [
         TreeviewModule.forRoot(),
         MatSidenavModule,
         MatSelectModule,
+        MatMenuModule
     ],
     declarations: [...routedComponents, ...components, DashboardComponent],
 })

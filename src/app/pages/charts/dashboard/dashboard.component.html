@@ -1,7 +1,52 @@
+<div class="row mb-2" style="margin-top: -20px;">
+    <div class="col-6 font-weight-bold d-flex flex-column justify-content-end">Dashboard</div>
+    <div class="col-6 d-flex justify-content-end">
+        <nb-select status="primary" style="min-width: 120px;" [(ngModel)]="timespan" matRipple class="theme-select mr-1">
+            <nb-option matRipple selected value="Today">Today</nb-option>
+            <nb-option matRipple  value="Yesterday">Yesterday</nb-option>
+            <nb-option matRipple  value="This Week">This Week</nb-option>
+            <nb-option matRipple  value="Last Week">Last Week</nb-option>
+            <!-- <nb-option matRipple  value="Last 7 days">Last 7 days</nb-option>
+            <nb-option matRipple  value="Last 15 days">Last 15 days</nb-option>
+            <nb-option matRipple  value="Last 30 days">Last 30 days</nb-option> -->
+            <nb-option matRipple  value="This Month">This Month</nb-option>
+            <nb-option matRipple  value="Last Month">Last Month</nb-option>
+            <nb-option matRipple  value="This Year">This Year</nb-option>
+            <nb-option matRipple  value="Last Year">Last Year</nb-option>
+
+        </nb-select>
+        <button class="btn btn-dark mr-1"> 
+            <nb-icon class="cursor-pointer" icon="email-outline"></nb-icon>
+            Send Email
+        </button>
+        <button class="btn btn-dark">
+            <nb-icon class="cursor-pointer" icon="share-outline"></nb-icon>
+            Share
+        </button>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-6" *ngFor="let chart of dashBoardCharts">
-        <nb-card style="">
-            <nb-card-header>{{chart.dataSource.chart.label}} - {{chart.chartType}}</nb-card-header>
+        <nb-card >
+            <nb-card-header class="d-flex justify-content-between">
+                <span>{{chart.dataSource.chart.label}} - {{chart.chartType}}</span>
+                <span class="d-flex">
+                    <nb-icon class="cursor-pointer" icon="alert-circle-outline"></nb-icon>
+                    <nb-icon class="cursor-pointer" [matMenuTriggerFor]="menu" icon="more-vertical-outline"></nb-icon>
+                    <mat-menu #menu="matMenu">
+                        <div class=" text-center">
+                            <nb-icon class="cursor-pointer" icon="bell-outline"></nb-icon>
+                        </div>
+                        <div class="p-2 text-white d-flex justify-content-between">
+                            <nb-icon class="cursor-pointer" icon="share-outline"></nb-icon>
+                            <nb-icon class="cursor-pointer" icon="trending-up-outline"></nb-icon>
+                        </div>
+                        <div class="text-center">
+                            <nb-icon class="cursor-pointer" icon="download-outline"></nb-icon>
+                        </div>
+                    </mat-menu>
+                </span>
+            </nb-card-header>
             <nb-card-body>
                 <div class="d-flex justify-content-between">
                     <span *ngFor="let set of chart.dataSource.data;let i=index">
@@ -14,6 +59,13 @@
                 </div> -->
                 <fusioncharts width="100%" height="" [type]="chart.chartType" [dataSource]="chart.dataSource"></fusioncharts> 
             </nb-card-body>
+            <nb-card-footer class="d-flex justify-content-center">
+                <nb-actions size="small">
+                    <nb-action class="actions">Drill Down</nb-action>
+                    <nb-action class="actions">Analytics</nb-action>
+                    <nb-action class="actions">Predictive</nb-action>
+                </nb-actions>
+            </nb-card-footer>
         </nb-card>
     </div>
 </div>
