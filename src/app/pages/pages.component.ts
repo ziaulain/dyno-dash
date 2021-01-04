@@ -38,8 +38,7 @@ export class PagesComponent implements OnInit, OnDestroy {
       });
     } else {
       const obj = {
-          title: 'Dashboard',
-          icon: 'shopping-cart-outline',
+          title: 'Dashboards',
           children: [],
       };
       dashboardNames.forEach(name => {

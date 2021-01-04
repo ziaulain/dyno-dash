@@ -2,9 +2,8 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
-    icon: 'shopping-cart-outline',
-    link: '/pages/dashboard',
+    title: 'Create Chart',
+    link: '/pages/charts/drilldown',
     home: true,
   },
 //   {
@@ -204,28 +203,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
 //       },
 //     ],
 //   },
-  {
-    title: 'Charts',
-    icon: 'pie-chart-outline',
-    children: [
-      {
-        title: 'Echarts',
-        link: '/pages/charts/echarts',
-      },
-      {
-        title: 'Charts.js',
-        link: '/pages/charts/chartjs',
-      },
-      {
-        title: 'D3',
-        link: '/pages/charts/d3',
-        },
-        {
-            title: 'drilldown',
-            link: '/pages/charts/drilldown',
-          },
-    ],
-  },
+//   {
+    // title: 'Charts',
+    // icon: 'pie-chart-outline',
+    // children: [
+    //   {
+    //     title: 'Echarts',
+    //     link: '/pages/charts/echarts',
+    //   },
+    //   {
+    //     title: 'Charts.js',
+    //     link: '/pages/charts/chartjs',
+    //   },
+    //   {
+    //     title: 'D3',
+    //     link: '/pages/charts/d3',
+    // },
+//     {
+//         title: 'Create Chart',
+//         link: '/pages/charts/drilldown',
+//         },
+//     ],
+//   },
   // {
   //   title: 'Dashboard',
   //   icon: 'shopping-cart-outline',

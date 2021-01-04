@@ -23,6 +23,7 @@ noData(Highcharts);
 })
 export class DrilldownComponent implements OnInit {
     dataSource: Object;
+    chartName: string;
     chartType: string;
     dataSets: any;
     label: string;
@@ -53,6 +54,7 @@ export class DrilldownComponent implements OnInit {
         this.label = 'countries';
         this.value1 = 'oilReserves';
         this.value2 = 'population';
+        this.chartName = 'Countries With Most Oil Reserves [2017-18]';
         // STEP 3 - Chart Configuration
         this.reRenderGraph();
         this.items = this.getBooks();
@@ -188,6 +190,7 @@ export class DrilldownComponent implements OnInit {
 
       addToDashboard() {
         const idx = this.dashBoards.map( e => e.dashboard).indexOf( this.selectedDashboard );
+          this.dataSource['chart']['caption'] = this.chartName;
         this.dashBoards[idx].charts.push({
             chartType: this.chartType,
             dataSource: this.dataSource,

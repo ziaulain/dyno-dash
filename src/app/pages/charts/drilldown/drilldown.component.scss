@@ -9,13 +9,16 @@ mat-drawer {
 }
 
 .chart-options {
+    flex-flow:row wrap;  
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 12px;
+    margin: 15px;
 }
 
 .filters-container {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,4 +28,8 @@ mat-drawer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 0rem;
 }

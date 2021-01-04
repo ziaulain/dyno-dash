@@ -53,8 +53,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages/dashboard' },
+  { path: '', redirectTo: 'pages/charts/drilldown', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages/charts/drilldown' },
 ];
 
 const config: ExtraOptions = {
